@@ -3,9 +3,8 @@ import { fileURLToPath, URL } from "url";
 import { join } from "path";
 import { cpus } from "os";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
 export const performCalculations = async () => {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
   const numCpus = cpus().length;
   const arrayFibonacci = [];
   
@@ -14,7 +13,6 @@ export const performCalculations = async () => {
       return {status: el.status, data: el.data};
     })
     console.log(arrRefactor);
-    return arrRefactor;
   };
 
   for (let numWorker = 0; numWorker < numCpus; numWorker++) {
@@ -36,6 +34,5 @@ export const performCalculations = async () => {
   }
 };
 
-(async () => {
-  await performCalculations().then((asd) => {console.log(asd)});
-})();
+//npm run wt:main
+performCalculations();
