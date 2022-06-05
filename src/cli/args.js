@@ -10,4 +10,7 @@ export const parseArgs = () => {
   console.log(arrayKey.join(', '));
 };
 
+//npm run cli:args
+//or
+//node ./src/cli/args.js --propName value --prop2Name value2
 parseArgs();
