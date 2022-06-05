@@ -3,9 +3,8 @@ import { readFile } from "fs/promises";
 import { join } from "path";
 import { fileURLToPath, URL } from "url";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
 export const calculateHash = async () => {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
   const pathToFile = join(__dirname, 'files', 'fileToCalculateHashFor.txt');
   const hash = createHash('sha256');
   const hashHex = await readFile(pathToFile, 'utf-8').then((content) => {
@@ -17,6 +16,8 @@ export const calculateHash = async () => {
   return hashHex;
 };
 
-calculateHash().then((hash) => {
+//npm run hash:calcHash
+(async () => {
+  const hash = await calculateHash();
   console.log(hash);
-});
+})()
