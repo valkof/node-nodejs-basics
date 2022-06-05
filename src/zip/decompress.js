@@ -4,9 +4,8 @@ import { pipeline } from "stream/promises";
 import { fileURLToPath, URL } from "url";
 import { createUnzip } from "zlib";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
 export const decompress = async () => {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
   const pathToSourceFile = join(__dirname, 'files', 'archive.gz');
   const pathToDestinationFile = join(__dirname, 'files', 'fileToCompress.txt');
   await pipeline(
@@ -16,4 +15,5 @@ export const decompress = async () => {
   );
 };
 
+//npm run zip:decompress
 decompress();
