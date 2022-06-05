@@ -14,4 +14,5 @@ export const transform = async () => {
   stdin.pipe(transformStream).pipe(stdout);
 };
 
+//npm run streams:transform
 transform();
