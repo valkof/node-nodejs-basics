@@ -2,9 +2,8 @@ import { readFile } from "fs/promises";
 import { join } from "path";
 import { fileURLToPath, URL } from "url";
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
 export const read = async () => {
+  const __dirname = fileURLToPath(new URL('.', import.meta.url));
   const pathToFile = join(__dirname, 'files', 'fileToRead.txt');
   await readFile(pathToFile, 'utf-8').then((content) => {
     console.log(content);
@@ -13,4 +12,5 @@ export const read = async () => {
   })
 };
 
+//npm run fs:read
 read();
